@@ -12,7 +12,7 @@ Please be aware that Spython is actively being developed to enhance its features
 ### Commands
 - `/executepython <scriptpath>`: Executes a Python script on the server.
   - Permission: `spython.executepython`
-  - If the scripts are in the Spython `script` folder, they will be listed in the tab completer
+  - The Tab Completer will list all python scripts that are not in a "libs" folder
 ### Installation
 1. Standalone Usage
 - Download the latest version of the Spython.jar file from the releases page.
