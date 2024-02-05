@@ -28,6 +28,8 @@ The **Spython** plugin for Spigot allows you to run Python scripts using GraalVM
 If you see the warnings below in the console, you can ignore them. We will leave this turned on until version 1.0
 ![image](https://github.com/CptGummiball/Spython/assets/151415484/d7d4b672-c97f-4f3c-b033-4a11512914c3)
 
+This plugin is currently not very performant. We'll do our best to fix this.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. The MIT License is a permissive open-source license that allows for flexibility in how the code can be used and shared.
