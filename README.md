@@ -10,6 +10,7 @@ The **Spython** plugin for Spigot allows you to run Python scripts using GraalVM
 ### Commands
 - `/executepython <scriptpath>`: Executes a Python script on the server.
   - Permission: `spython.executepython`
+  - If the scripts are in the Spython `script` folder, they will be listed in the tab completer
 ### Installation
 1. Standalone Usage
 - Download the latest version of the Spython.jar file from the releases page.
