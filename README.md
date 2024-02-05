@@ -24,6 +24,9 @@ The **Spython** plugin for Spigot allows you to run Python scripts using GraalVM
 2. In-game, execute the /executepython command to run a Python script.
 `/executepython <scriptpath>`
 
+## Notes
+If you see the warnings below in the console, you can ignore them. We will leave this turned on until version 1.0
+![image](https://github.com/CptGummiball/Spython/assets/151415484/d7d4b672-c97f-4f3c-b033-4a11512914c3)
 
 ## License
 
