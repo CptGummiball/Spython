@@ -1,0 +1,85 @@
+name: "Bug report"
+description: report a bug/issue
+title: "[BUG] <title>"
+labels: ["Bug"]
+body:
+- type: markdown
+  attributes:
+    value: "## Welcome!"
+- type: markdown
+  attributes:
+    value: |
+      Thanks for taking the time to fill out this bug report!
+- type: dropdown
+  id: typebug
+  attributes:
+    label: Type of Bug
+    options:
+      - Console Error
+      - Commands
+      - Something else
+  validations:
+    required: true
+- type: textarea
+  id: behavior
+  attributes:
+    label: Current Behavior
+    description: A concise description of what you're experiencing.
+  validations:
+    required: false
+- type: textarea
+  id: expected
+  attributes:
+    label: Expected Behavior
+    description: A concise description of what you expected to happen.
+  validations:
+    required: false
+- type: textarea
+  id: reproduce
+  attributes:
+    label: Steps To Reproduce
+    description: Steps to reproduce the behavior.
+    placeholder: |
+      1. In this environment...
+      1. With this config...
+      1. Run '...'
+      1. See error...
+  validations:
+    required: false
+- type: input
+  id: pastegg
+  attributes:
+    label: paste.gg Link
+    description: "Please copy your console log to [paste.gg](https://paste.gg) and enter your link here"
+    placeholder: "Whenever I visit the user account page (1-2 times a week)"
+  validations:
+    required: true
+- type: input
+  id: servertype
+  attributes:
+    label: Type of Server
+    description: "Spigot/Bukkit/PaperMC #Build"
+    placeholder: "PaperMC #372"
+  validations:
+    required: true
+- type: input
+  id: minecraft
+  attributes:
+    label: Minecraft Version
+    description: "The Minecraft version your Server running on"
+    placeholder: "1.20.1"
+  validations:
+    required: true
+- type: dropdown
+  id: spython
+  attributes:
+    label: Spython Version
+    options:
+      - 1.0
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Anything else?
+    description: |
+      Links? References? Anything that will give us more context about the issue you are encountering!
