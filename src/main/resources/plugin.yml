@@ -1,0 +1,12 @@
+name: Spython
+version: '${project.version}'
+main: org.cptgum.spython.Spython
+api-version: '1.20'
+author: CptGummiball
+description: A Spigot Plugin to run Python scripts
+
+commands:
+  executepython:
+    description: Runs a Python script
+    usage: /executepython <script>
+    permission: spython.executepython
