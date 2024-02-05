@@ -17,7 +17,7 @@ The **Spython** plugin for Spigot allows you to run Python scripts using GraalVM
 - Place it in the plugins folder of your Spigot server.
 - Start or restart your Spigot server.
 2. [Using Spython as a Dependency](https://github.com/CptGummiball/Spython/wiki/Using-Spython-as-a-Dependency)
-3. [Adding additional libaries](https://github.com/CptGummiball/Spython/wiki/Adding-additional-libaries)
+3. [Adding additional libaries](https://github.com/CptGummiball/Spython/wiki/Integrated-Libaries)
 
 ### Running Python Scripts in standalone usage
 1. Place your Python scripts in the server's directory where the Spigot plugins are located.
