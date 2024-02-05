@@ -9,7 +9,9 @@ import org.bukkit.entity.Player;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ExecutePythonCommand implements CommandExecutor, TabCompleter {
 
@@ -25,27 +27,53 @@ public class ExecutePythonCommand implements CommandExecutor, TabCompleter {
             return true;
         }
 
-        String scriptName = args[0];
+        String fullPath = args[0];
         // Call the Python script executor
-        PythonExecutor.executeScript(scriptName, sender);
-        sender.sendMessage(ChatColor.GREEN + "Python script '" + scriptName + "' executed.");
+        PythonExecutor.executeScript(fullPath);
+        sender.sendMessage(ChatColor.GREEN + "Python script '" + fullPath + "' executed.");
         return true;
     }
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        List<String> completions = new ArrayList<>();
+
         if (args.length == 1) {
-            // Autocomplete script names from the specified directory
-            File scriptDir = new File("./plugins/spython/scripts");
-            String[] scriptFiles = scriptDir.list((dir, name) -> name.endsWith(".py"));
-            if (scriptFiles != null) {
-                List<String> scriptNames = new ArrayList<>();
-                for (String scriptFile : scriptFiles) {
-                    scriptNames.add(scriptFile.replace(".py", ""));
-                }
-                return scriptNames;
+            String input = args[0].toLowerCase();
+
+            File pluginsDir = new File("./plugins");
+            if (pluginsDir.exists() && pluginsDir.isDirectory()) {
+                completions.addAll(findScripts(pluginsDir, input));
             }
         }
-        return null;
+
+        return completions;
+    }
+
+    private List<String> findScripts(File directory, String input) {
+        List<String> scripts = new ArrayList<>();
+
+        if (directory.exists() && directory.isDirectory()) {
+            scripts.addAll(Arrays.stream(directory.listFiles())
+                    .filter(file -> file.getName().endsWith(".py"))
+                    .map(file -> file.toPath().toString().replace("\\", "/"))
+                    .map(scriptName -> scriptName.replace("./plugins/", ""))
+                    .map(scriptName -> scriptName.toLowerCase().startsWith(input) ? scriptName : null)
+                    .filter(scriptName -> scriptName != null)
+                    .toList());
+
+            scripts.addAll(Arrays.stream(directory.listFiles(File::isDirectory))
+                    .filter(subdir -> !shouldIgnore(subdir))
+                    .flatMap(subdir -> findScripts(subdir, input).stream())
+                    .collect(Collectors.toList())
+            );
+        }
+
+        return scripts;
+    }
+
+    private boolean shouldIgnore(File dir) {
+        String dirName = dir.getName().toLowerCase();
+        return dirName.equals("libs") || dirName.equals("libary") || dirName.equals("libaries");
     }
 }

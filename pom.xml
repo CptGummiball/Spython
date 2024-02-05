@@ -6,7 +6,7 @@
 
   <groupId>org.cptgum</groupId>
   <artifactId>Spython</artifactId>
-  <version>1.0</version>
+  <version>0.5</version>
   <packaging>jar</packaging>
 
   <name>Spython</name>
@@ -23,14 +23,26 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.1</version>
         <configuration>
-          <source>${java.version}</source>
-          <target>${java.version}</target>
+          <source>16</source>
+          <target>16</target>
         </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>
         <version>3.2.4</version>
+          <configuration>
+              <filters>
+                  <filter>
+                      <artifact>*:*</artifact>
+                      <excludes>
+                          <exclude>META-INF/*.SF</exclude>
+                          <exclude>META-INF/*.DSA</exclude>
+                          <exclude>META-INF/*.RSA</exclude>
+                      </excludes>
+                  </filter>
+              </filters>
+          </configuration>
         <executions>
           <execution>
             <phase>package</phase>
@@ -70,6 +82,11 @@
       <dependency>
           <groupId>org.graalvm.sdk</groupId>
           <artifactId>graal-sdk</artifactId>
+          <version>23.1.2</version>
+      </dependency>
+      <dependency>
+          <groupId>org.graalvm.python</groupId>
+          <artifactId>python-language</artifactId>
           <version>23.1.2</version>
       </dependency>
       <dependency>

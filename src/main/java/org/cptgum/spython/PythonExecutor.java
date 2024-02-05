@@ -1,6 +1,8 @@
 package org.cptgum.spython;
 
+import org.bukkit.plugin.java.JavaPlugin;
 import org.graalvm.polyglot.Context;
+import org.graalvm.polyglot.Engine;
 import org.graalvm.polyglot.Source;
 import org.graalvm.polyglot.Value;
 
@@ -10,20 +12,30 @@ import java.io.IOException;
 
 public class PythonExecutor {
 
-    public static void executeScript(String scriptPath, Object... args) {
-        File scriptFile = new File(scriptPath);
+    public static void executeScriptAsync(JavaPlugin plugin, String fullPath, Object... args) {
+        new Thread(() -> {
+            executeScript( fullPath, args);
+        }).start();
+    }
+
+    public static void executeScript(String fullPath, Object... args) {
+        File scriptFile = new File("plugins", fullPath);
 
         if (!scriptFile.exists()) {
-            Spython.getInstance().getLogger().warning("Script not found: " + scriptPath);
+            Spython.getInstance().getLogger().warning("Script not found: " + fullPath);
             return;
         }
 
-        try (Context context = Context.newBuilder("python")
-                .allowAllAccess(true)
-                .build()) {
+        try (Engine engine = Engine.newBuilder()
+                .option("engine.WarnInterpreterOnly", "false")
+                .build();
+             Context context = Context.newBuilder("python")
+                     .allowAllAccess(true)
+                     .engine(engine)
+                     .build()) {
 
-            // Adding additional libraries
-            context.getBindings("python").putMember("sys", context.eval("python", "import sys\nsys.path.append('./plugins/spython/libs/')"));
+            // Adding the libs folder to the python path
+            context.getBindings("python").putMember("sys", context.eval("python", "import sys\nsys.path.append('./plugins/spython/libraries/')"));
 
             context.eval(Source.newBuilder("python", new FileReader(scriptFile), scriptFile.getName()).build());
 
@@ -32,11 +44,11 @@ public class PythonExecutor {
             if (pythonFunction != null) {
                 pythonFunction.execute(args);
             } else {
-                Spython.getInstance().getLogger().warning("Main function not found: " + scriptPath);
+                Spython.getInstance().getLogger().warning("Main function not found: " + fullPath);
             }
 
         } catch (IOException e) {
-            Spython.getInstance().getLogger().severe("Error executing script: " + scriptPath);
+            Spython.getInstance().getLogger().severe("Error executing script: " + fullPath);
         }
     }
 }

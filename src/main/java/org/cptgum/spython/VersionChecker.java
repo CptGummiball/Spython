@@ -21,7 +21,8 @@ public class VersionChecker {
             // Check if the plugin version file exists
             if (!pluginVersionFile.exists()) {
                 Spython.getInstance().getLogger().info("No version.yml found. Performing initial setup...");
-                ResourceUtil.copyResourceFolder("libraries", "libs");
+                FolderUtil.createLibsFolder();
+                ResourceUtil.copy();
                 FolderUtil.createScriptFolder();
                 Spython.getInstance().saveResource("version.yml", true);
                 Spython.getInstance().getLogger().info("Initial setup completed successfully.");
@@ -33,7 +34,7 @@ public class VersionChecker {
             // Compare the versions
             if (jarVersion > pluginVersion) {
                 Spython.getInstance().getLogger().info("Updating files...");
-                ResourceUtil.copyResourceFolder("libraries", "libs");
+                ResourceUtil.copy();
                 Spython.getInstance().saveResource("version.yml", true);
                 Spython.getInstance().getLogger().info("Files updated successfully.");
             } else {

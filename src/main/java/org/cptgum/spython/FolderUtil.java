@@ -18,4 +18,20 @@ public class FolderUtil {
             Spython.getInstance().getLogger().info("Script folder already exists.");
         }
     }
+    public static void createLibsFolder() {
+        // Set Paths
+        File pluginFolder = Spython.getInstance().getDataFolder();
+        File scriptFolder = new File(pluginFolder, "libaries");
+
+        // Create the script folder if it doesn't exist
+        if (!scriptFolder.exists()) {
+            if (scriptFolder.mkdirs()) {
+                Spython.getInstance().getLogger().info("libs folder created successfully.");
+            } else {
+                Spython.getInstance().getLogger().warning("Failed to create libs folder.");
+            }
+        } else {
+            Spython.getInstance().getLogger().info("libs folder already exists.");
+        }
+    }
 }

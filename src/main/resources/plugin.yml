@@ -8,5 +8,5 @@ description: A Spigot Plugin to run Python scripts
 commands:
   executepython:
     description: Runs a Python script
-    usage: /executepython <script>
+    usage: /executepython <scriptpath>
     permission: spython.executepython
