@@ -9,13 +9,12 @@ body:
 - type: markdown
   attributes:
     value: |
-      Thanks for taking the time to fill out this bug!
+      Thanks for taking the time to fill out this bug report!
 - type: dropdown
   id: typebug
   attributes:
     label: Type of Bug
     options:
-      - Webfiles
       - Console Error
       - Commands
       - Something else
@@ -63,34 +62,13 @@ body:
     placeholder: "PaperMC #372"
   validations:
     required: true
-- type: input
-  id: minecraft
-  attributes:
-    label: Minecraft Version
-    description: "The Minecraft version your Server running on"
-    placeholder: "1.20.1"
-  validations:
-    required: true
 - type: dropdown
-  id: villagermarket
+  id: spython
   attributes:
-    label: Villager Market Version
+    label: Spython Version
     options:
-      - 1.11.7
-      - 1.11.6
-      - older version
-  validations:
-    required: true
-- type: dropdown
-  id: mcdealer
-  attributes:
-    label: MCDealer Version
-    options:
-      - 1.2.0-pre3
-      - 1.2.0-pre2
-      - 1.2.0-pre1
-      - 1.1.0
-      - 1.0.0
+      - 1.0
+      - dev
   validations:
     required: true
 - type: textarea
