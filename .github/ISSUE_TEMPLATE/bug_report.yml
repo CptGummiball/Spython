@@ -51,7 +51,7 @@ body:
   attributes:
     label: paste.gg Link
     description: "Please copy your console log to [paste.gg](https://paste.gg) and enter your link here"
-    placeholder: "Whenever I visit the user account page (1-2 times a week)"
+    placeholder: "https://paste.gg/p/"
   validations:
     required: true
 - type: input
