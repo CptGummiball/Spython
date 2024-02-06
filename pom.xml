@@ -85,9 +85,10 @@
           <version>23.1.2</version>
       </dependency>
       <dependency>
-          <groupId>org.graalvm.python</groupId>
-          <artifactId>python-language</artifactId>
+          <groupId>org.graalvm.polyglot</groupId>
+          <artifactId>python</artifactId>
           <version>23.1.2</version>
+          <type>pom</type>
       </dependency>
       <dependency>
           <groupId>commons-io</groupId>

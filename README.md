@@ -27,8 +27,6 @@ Please be aware that Spython is actively being developed to enhance its features
 `/executepython <scriptpath>`
 
 ## Notes
-If you see the warnings below in the console, you can ignore them for now.
-![image](https://github.com/CptGummiball/Spython/assets/151415484/d7d4b672-c97f-4f3c-b033-4a11512914c3)
 
 This plugin is currently not very performant. We'll do our best to fix this.
 
