@@ -2,7 +2,7 @@
 
 
 # Spython Plugin
-![Version](https://img.shields.io/badge/v-0.5-blue.svg) [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE) ![Spigot](https://img.shields.io/badge/Spigot-1.20-orange.svg)
+![Version](https://img.shields.io/badge/v-0.6-blue.svg) [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE) ![Spigot](https://img.shields.io/badge/Spigot-1.20-orange.svg) ![Paper](https://img.shields.io/badge/PaperMC-1.20-34eba4.svg)
 
 ## Overview
 The **Spython** plugin for Spigot allows you to run Python scripts using GraalVM's polyglot capabilities.
