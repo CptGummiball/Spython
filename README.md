@@ -37,3 +37,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Support and Issues:
 
 For support or reporting issues, please visit the [Spython GitHub repository](https://github.com/CptGummiball/Spython/) and open a new [issue.](https://github.com/CptGummiball/Spython/issues)
+
+## Contributing
+
+Contributions to the project are welcome! Feel free to join the discussion, propose ideas, contribute code, or suggest improvements. Please follow the established [contribution guidelines](https://github.com/CptGummiball/Spython/blob/main/.github/CONTRIBUTING.md) for a smooth collaboration process.
+
