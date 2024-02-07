@@ -17,6 +17,7 @@ body:
     options:
       - Commands
       - adding libs
+      - Plugin Support
       - Something else
   validations:
     required: true
