@@ -30,6 +30,9 @@
 **Inline Comments:**
    - Use inline comments sparingly to explain specific lines of code if they might be unclear to others.
 
+**DATA and FUNCTION**
+   - Methods that get data have to be marked with //DATA: <comment>
+   - Methods that execute server-side actions have to be marked with //FUNCTION: <comment>
 ## DataBridge
 **Avoid Complex Code in DataBridge:**
    - The `DataBridge` class (`org/cptgum/spython/GetData/DataBridge.java`) is intended for simple data retrieval functions. Please refrain from implementing complex logic directly within this class.
