@@ -1,6 +1,7 @@
 package org.cptgum.spython;
 
 import org.bukkit.plugin.java.JavaPlugin;
+import org.cptgum.spython.GetData.DataBridge;
 import org.graalvm.polyglot.Context;
 import org.graalvm.polyglot.Engine;
 import org.graalvm.polyglot.Source;
@@ -37,8 +38,12 @@ public class PythonExecutor {
             // Adding the libs folder to the python path
             context.getBindings("python").putMember("sys", context.eval("python", "import sys\nsys.path.append('./plugins/spython/libraries/')"));
 
-            context.eval(Source.newBuilder("python", new FileReader(scriptFile), scriptFile.getName()).build());
+            // Adding Data Bridge
+            context.getBindings("python").putMember("dataBridge", new DataBridge());
+            Value javaArgs = context.asValue(args);
 
+            // Executing the script
+            context.eval(Source.newBuilder("python", new FileReader(scriptFile), scriptFile.getName()).build()).execute("main", javaArgs);
             // Call the main function
             Value pythonFunction = context.getBindings("python").getMember("main");
             if (pythonFunction != null) {
