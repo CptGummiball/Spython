@@ -181,4 +181,24 @@ public class DataBridge {
     public static void banPlayer(String playerName, String banMessage) {
         KickBan.banPlayer(playerName, banMessage);
     }
+
+    // DATA: query data from file
+    public static Object queryData(String filePath, Files.FileType fileType) {
+        return Files.queryData(filePath, fileType);
+    }
+
+    // FUNCTION: write data to file
+    public static void writeData(String filePath, Files.FileType fileType, Object data) {
+        Files.writeData(filePath, fileType, data);
+    }
+
+    // FUNCTION: Execute a command as the console
+    public static void executeConsoleCommand(String command) {
+        RunCommand.executeConsoleCommand(command);
+    }
+
+    // FUNCTION: Execute a command as a player
+    public static void executePlayerCommand(String playerName, String command) {
+        RunCommand.executePlayerCommand(playerName, command);
+    }
 }
