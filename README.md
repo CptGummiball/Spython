@@ -20,6 +20,7 @@ Please be aware that Spython is actively being developed to enhance its features
 - Start or restart your Spigot server.
 2. [Using Spython as a Dependency](https://github.com/CptGummiball/Spython/wiki/Using-Spython-as-a-Dependency)
 3. [Adding additional libaries](https://github.com/CptGummiball/Spython/wiki/Integrated-Libaries)
+4. [Using the Data Bridge](https://github.com/CptGummiball/Spython/wiki/Data-Bridge-(WIP))
 
 ### Running Python Scripts in standalone usage
 1. Place your Python scripts in the server's directory where the Spigot plugins are located.
