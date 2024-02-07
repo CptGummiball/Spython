@@ -5,7 +5,7 @@
 ![Version](https://img.shields.io/badge/v-0.6-blue.svg) [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE) ![Spigot](https://img.shields.io/badge/Spigot-1.20-orange.svg) ![Paper](https://img.shields.io/badge/PaperMC-1.20-34eba4.svg)
 
 ## Overview
-The **Spython** plugin for Spigot allows you to run Python scripts using GraalVM's polyglot capabilities.
+The **Spython** plugin allows you to run Python scripts on Spigot and PaperMC Servers.
 ### Development Note:
 Please be aware that Spython is actively being developed to enhance its features and address any existing imperfections. While the plugin is functional, it may not be considered flawless. We appreciate your understanding and welcome feedback as we work to make Spython even better.​
 ## Usage
